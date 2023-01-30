@@ -26,7 +26,7 @@ console.assert(vector === [34, 38]);
 
 ## Usage
 
-Pass your initial vector into the `new VectorBuilder()` constructor as an array of two numbers.
+Pass your initial vector into the `new VectorBuilder()` constructor as an array of two numbers, or omit to start at the default `(0, 0)`.
 
 Each operation returns a reference to the builder so they can be chained. Call `build()` to get the constructed vector as an array of two numbers.
 

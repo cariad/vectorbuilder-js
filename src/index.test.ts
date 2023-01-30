@@ -1,5 +1,15 @@
 import VectorBuilder from '.';
 
+test('defaults to (0, 0)', () => {
+  const vector = new VectorBuilder().build();
+  expect(vector).toEqual([0, 0]);
+});
+
+test('uses initial vector', () => {
+  const vector = new VectorBuilder([7, 9]).build();
+  expect(vector).toEqual([7, 9]);
+});
+
 test('can add number', () => {
   const vector = new VectorBuilder([0, 0]).add(1).build();
   expect(vector).toEqual([1, 1]);
@@ -18,4 +28,52 @@ test('can multiply by number', () => {
 test('can multiply by vector', () => {
   const vector = new VectorBuilder([3, 3]).multiply([3, 4]).build();
   expect(vector).toEqual([9, 12]);
+});
+
+test('agrees with README example', () => {
+  const vector = new VectorBuilder([7, 9])
+    // Translate by 10
+    .add(10)
+    // Double the length
+    .multiply(2)
+    // Build to an array of [x, y]
+    .build();
+
+  expect(vector).toEqual([34, 38]);
+});
+
+test('agrees with README add(n: number) usage', () => {
+  const vector = new VectorBuilder([1, 2])
+    // Add 3 to each dimension
+    .add(3)
+    .build();
+
+  expect(vector).toEqual([4, 5]);
+});
+
+test('agrees with README add(v: [number, number]) usage', () => {
+  const vector = new VectorBuilder([1, 2])
+    // Add 3 to the X length and 4 to the Y length
+    .add([3, 4])
+    .build();
+
+  expect(vector).toEqual([4, 6]);
+});
+
+test('agrees with README multiply(n: number) usage', () => {
+  const vector = new VectorBuilder([3, 4])
+    // Multiply both lengths by 2
+    .multiply(2)
+    .build();
+
+  expect(vector).toEqual([6, 8]);
+});
+
+test('agrees with README multiply(v: [number, number]) usage', () => {
+  const vector = new VectorBuilder([3, 4])
+    // Multiply the X length by 10 and the Y length by 20
+    .multiply([10, 20])
+    .build();
+
+  expect(vector).toEqual([30, 80]);
 });
