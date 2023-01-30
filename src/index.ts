@@ -13,12 +13,22 @@ export default class VectorBuilder {
   private y: number;
 
   /**
+   * Constructs a new vector builder with the initial vector (0, 0).
+   */
+  constructor();
+
+  /**
    * Constructs a new vector builder.
    *
    * @param vector Initial vector.
    */
-  constructor(vector: [number, number]) {
-    [this.x, this.y] = vector;
+  constructor(initial: [number, number]);
+
+  constructor(a: [number, number] | undefined = undefined) {
+    if (a === undefined) {
+      this.x = 0;
+      this.y = 0;
+    } else [this.x, this.y] = a;
   }
 
   /**
