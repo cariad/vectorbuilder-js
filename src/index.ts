@@ -24,10 +24,20 @@ export default class VectorBuilder {
    */
   constructor(initial: [number, number]);
 
-  constructor(a: [number, number] | undefined = undefined) {
+  /**
+   * Constructs a new vector builder.
+   *
+   * @param vector Initial vector.
+   */
+  constructor(initial: VectorBuilder);
+
+  constructor(a: [number, number] | VectorBuilder | undefined = undefined) {
     if (a === undefined) {
       this.x = 0;
       this.y = 0;
+    } else if (a instanceof VectorBuilder) {
+      this.x = a.x;
+      this.y = a.y;
     } else [this.x, this.y] = a;
   }
 
@@ -44,10 +54,21 @@ export default class VectorBuilder {
    * @param v Vector to add.
    */
   public add(v: [number, number]): VectorBuilder;
-  public add(a: number | [number, number]): VectorBuilder {
+
+  /**
+   * Adds a vector.
+   *
+   * @param v Vector to add.
+   */
+  public add(v: VectorBuilder): VectorBuilder;
+
+  public add(a: number | [number, number] | VectorBuilder): VectorBuilder {
     if (typeof a === 'number') {
       this.x += a;
       this.y += a;
+    } else if (a instanceof VectorBuilder) {
+      this.x += a.x;
+      this.y += a.y;
     } else {
       this.x += a[0];
       this.y += a[1];
@@ -77,10 +98,21 @@ export default class VectorBuilder {
    * @param v Vector to multiply by.
    */
   public multiply(v: [number, number]): VectorBuilder;
-  public multiply(a: number | [number, number]): VectorBuilder {
+
+  /**
+   * Multiplies by a vector.
+   *
+   * @param v Vector to multiply by.
+   */
+  public multiply(v: VectorBuilder): VectorBuilder;
+
+  public multiply(a: number | [number, number] | VectorBuilder): VectorBuilder {
     if (typeof a === 'number') {
       this.x *= a;
       this.y *= a;
+    } else if (a instanceof VectorBuilder) {
+      this.x *= a.x;
+      this.y *= a.y;
     } else {
       this.x *= a[0];
       this.y *= a[1];

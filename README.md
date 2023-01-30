@@ -52,6 +52,17 @@ Each operation returns a reference to the builder so they can be chained. Call `
   console.assert(vector === [4, 6]);
   ```
 
+- `add(v: VectorBuilder)` adds a vector.
+
+  ```javascript
+  const vector = new VectorBuilder([0, 0])
+    // Add 2 to the X length and 6 to the Y length
+    .add(new VectorBuilder([3, 7]).add(-1))
+    .build();
+
+  console.assert(vector === [2, 6]);
+  ```
+
 - `multiply(n: number)` multiplies each dimension of the vector by a length.
 
   ```javascript
@@ -72,6 +83,17 @@ Each operation returns a reference to the builder so they can be chained. Call `
     .build();
 
   console.assert(vector === [30, 80]);
+  ```
+
+- `multiply(v: VectorBuilder)` multiplies by a vector.
+
+  ```javascript
+  const vector = new VectorBuilder([3, 4])
+    // Multiply the X length by 2 and the Y length by 6
+    .multiply(new VectorBuilder([3, 7]).add(-1))
+    .build();
+
+  console.assert(vector === [6, 24]);
   ```
 
 ## Contributions
