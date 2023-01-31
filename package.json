@@ -48,7 +48,6 @@
     "prettier": "npx prettier . --write",
     "test": "jest"
   },
-  "type": "module",
   "types": "dist/index.d.ts",
   "version": "0.0.0"
 }

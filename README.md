@@ -99,3 +99,9 @@ Each operation returns a reference to the builder so they can be chained. Call `
 ## Contributions
 
 Raise bug reports, request features and ask questions at [github.com/cariad/vectorbuilder-js/issues](https://github.com/cariad/vectorbuilder-js/issues).
+
+## The Author
+
+Hello! 👋 I'm Cariad Eccleston, and I'm a indie + freelance software engineer down by the beach in Devon, UK.
+
+You can find my open source projects at [github.com/cariad](https://github.com/cariad), my resume at [linkedin.com/in/cariad](https://linkedin.com/in/cariad) and Mastodon microblog at [@cariad@tech.lgbt](https://tech.lgbt/@cariad).
